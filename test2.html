@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="faApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/images/icon.png">
+
+<link rel="stylesheet" type="text/css" href="/style/css/default/viewQuestion.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/default/askQuestion.css" />
+<link rel="stylesheet" type="text/css" href="/css/questionResponse.css" />
+<link rel="stylesheet" type="text/css" href="/components/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/components/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/components/nanoscroller/bin/css/nanoscroller.css" />
+<link rel="stylesheet" type="text/css" href="/style/css/default/menu.css?20141027052051" />
+<link rel="stylesheet" type="text/css" href="/style/css/default/notifications.css?20141027052051" />
+<link rel="stylesheet" type="text/css" href="/css/main-ng.css?20141027052051" />
+<link rel="stylesheet" type="text/css" href="/css/financialask-responsive.css?20141027052051" />
+<title>Financial Ask - Activity</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'> 
+
+</head>
+<body class="animated sb-collapsed" ng-controller="MainController" ng-class="{'sb-collapsed': collapsed}" resize>
+
+<div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div id="fa-navbar" class="right">
+            <a class="icon-box you-box" ng-click="showYou()">
+                <div class="you-nav-icon"></div>
+                <div class="text">You</div>
+            </a>
+            <a class="icon-box home-box" href="/activity">
+                <div class="feed-nav-icon"></div>
+                <div class="text">Home</div>
+            </a>
+            <a class="icon-box search-box" href="/search">
+                <div class="search-nav-icon"></div>
+                <div class="text">Search</div>
+            </a>
+            <a class="icon-box ask-docs" href="/questions/ask">
+                <div class="talk2docs-nav-icon"></div>
+                <div class="text">Ask</div>
+            </a>
+            <a class="icon-box checklists-box" href="/adviser/index">
+                <div class="checklists-nav-icon">
+                <!--    <div class="red-circle" style="display: none;">
+                        <div class="number"></div>
+                    </div>-->
+                </div>
+                <div class="text">Advisers</div>
+            </a>
+        </div>
+        <a class="navbar-brand" id="navbar-brand-logo" href=""><img src="/img/financialask_logo.png"></a>
+    </div>
+</div>
+
+<div class="cl-sidebar" ng-mouseover="over()" ng-mouseleave="leave()">
+    <div class="cl-navblock">
+        <div class="menu-space">
+            <div class="content">
+                <div class="sidebar-logo">
+                    <div class="logo">
+                    </div>
+                </div>
+                                <ul class="cl-vnavigation">
+                    <li><a href="/questions/unanswered"><i class="fa fa-bullhorn fa-lx"></i><span class="linkTitle">New Questions</span></a></li><li><a href="/adviser/index"><i class="fa fa-list-alt fa-lx"></i><span class="linkTitle">Advisers</span></a></li><li><a href="/questions/answered"><i class="fa fa-check-square-o fa-lx fa-lx"></i><span class="linkTitle">Answers</span></a></li><li><a href="/search"><i class="fa fa-book fa-lx"></i><span class="linkTitle">Learn</span></a></li><li><a href="/questions/myanswers"><i class="fa  fa-check fa-lx"></i><span class="linkTitle">My Answers</span></a></li><li><a href="/profile/update"><i class="fa fa-user fa-lx"></i><span class="linkTitle">My Profile</span></a></li><li><a href="/notification/index"><i class="fa fa-bolt fa-lx"></i><span class="linkTitle">My Notifications</span></a></li><li><a href="/site/settings"><i class="fa fa-gears fa-lx"></i><span class="linkTitle">My Settings</span></a></li><li><a href="/site/logout"><i class="fa fa-sign-out fa-lx"></i><span class="linkTitle">Logout</span></a></li><!--
+                    <li><a href="#"><i class="fa fa-home"></i><span>Test Parent Menu</span></a>
+                        <ul class="sub-menu">
+                            <li class="active"><a href="index.html">Test Sub 1</a></li>
+                            <li><a href="dashboard2.html"><span class="label label-primary pull-right">New</span>Test Sub 2</a></li>
+                        </ul>
+                    </li>
+-->
+                </ul>
+            </div>
+        </div>
+        <div class="text-right collapse-button" style="padding:7px 9px; display: none;">
+            <button id="sidebar-collapse" class="btn btn-default" style=""><i style="color:#fff;"
+                                                                              class="fa fa-angle-left"></i></button>
+        </div>
+    </div>
+</div>
+
+<div id="cl-wrapper">
+
+
+    <div class="container-fluid" id="pcont">
+<!-- Modal -->
+<div class="modal fade" id="yw0" tabindex="-1" role="dialog" aria-labelledby="Incoming call" aria-hidden="true">
+    <div class="modal-dialog" style="width: 250px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Incoming call</h4>
+            </div>
+            <div class="modal-body">
+                <div class="caller" style="margin-left: 60px;">
+                    <img alt="Gravatar image" title="Gravatar image" src="http://www.gravatar.com/avatar/5a7ea0c602163602250f97ed0de4e698?d=http%3A%2F%2Fdev.financialask.com.au%2Fimg%2Fdefault-avatar.png&amp;r=r&amp;s=80" />                    <div class="name">[Person]</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Decline</button>
+                <button type="button" class="btn btn-primary accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="cl-mcont">
+
+            <section id="content">
+            <style>
+    /*.cl-mcont {
+        max-width: 751px;
+    }*/
+    .timeline-spine{
+        margin:0 auto 0 -5px;
+        display:block;
+        height:90%;
+        position:absolute;
+        width: 5px;
+        left: 52.3% !important;
+        top: 10% !important;
+        background: #ddd;
+        z-index:0
+    }
+    .timeline-spine span{
+        width: 20px;
+        height: 20px;
+        display: block;
+        top: 30%;
+        left: -7px;
+        position: absolute;
+        cursor: default;
+        z-index: 10;
+        background: #1bd5b5;
+        border-radius: 50%;
+        border: 4px solid #ddd;
+    }
+    .ts-date{
+        position: absolute;
+        background: #F0F0F0;
+        width: 42px;
+        padding: 5px;
+        color: #1bd5b5;
+        top: 23%;
+        left: -18px;
+        text-align: center;
+        line-height: 16px;
+    }
+</style>
+<!--<div class="timeline-spine">
+    <p class="ts-date">Aug<br>2014</p>
+    <span></span>
+</div>-->
+<div id="feed-tpl">
+        <div ng-controller="ActivitiesController">
+        <div id="container-feed"
+             isotope-container="isotope-container"
+             infinite-scroll="load()"
+             infinite-scroll-container="maincont"
+             infinite-scroll-distance="0"
+             infinite-scroll-disabled="isDisabled()">
+            <div ng-repeat="feed in feeds | orderBy:'id' : true" class="{{feed.type}}-item feed-item" isotope-item="isotope-item" ng-include="tpl(feed.type)">
+            </div>
+        </div>
+        <div class="fg-spinner" id="loading-more" style=" margin: 20px auto;" ng-show="loading"></div>
+    </div>
+</div>      </section>
+
+      <div id="notificationBox">
+  <div class="new">
+    0
+  </div>
+  <div class="eventList">
+      <li class="list">
+      </li>
+  </div>  
+</div>
+        </div>
+
+    <div id="footer">
+      <ul class="fa-ul">
+          <li><a href="/site/about">Who we are</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a href="/site/termsConditions">Terms &amp; Conditions</a></li>
+          <!--<li><i class="fa-li fa fa-circle"></i><a>What we make</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Work with us</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Privacy</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Contact</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Topics by Specialty</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Answers by Specialty</a></li>-->
+      </ul>
+      <div class="disclaimer">FinancialAsk does not provide financial advice<br>
+        The advisers listed are responsible for any financial product advice provided and the views expressed are not those of FinancialAsk (FA).  Any general advice provided by advisers does not take into account an individual’s objectives, financial situation or needs. Talk to an adviser to discuss the appropriateness of advice for your own personal financial circumstances.
+
+      <!--For these services, please see <a>Additional Information</a>--></div>
+      <div class="copy">&copy; 2014 FinancialAsk</div>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>

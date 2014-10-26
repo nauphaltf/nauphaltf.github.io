@@ -13,14 +13,18 @@
 <link rel="stylesheet" type="text/css" href="/components/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="/components/font-awesome/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="/components/nanoscroller/bin/css/nanoscroller.css" />
-<link rel="stylesheet" type="text/css" href="/style/css/default/menu.css?20141027052051" />
-<link rel="stylesheet" type="text/css" href="/style/css/default/notifications.css?20141027052051" />
-<link rel="stylesheet" type="text/css" href="/css/main-ng.css?20141027052051" />
-<link rel="stylesheet" type="text/css" href="/css/financialask-responsive.css?20141027052051" />
-<title>Financial Ask - Activity</title>
+<link rel="stylesheet" type="text/css" href="/style/css/default/menu.css?20141027050130" />
+<link rel="stylesheet" type="text/css" href="/style/css/default/notifications.css?20141027050130" />
+<link rel="stylesheet" type="text/css" href="/css/main-ng.css?20141027050130" />
+<link rel="stylesheet" type="text/css" href="/css/financialask-responsive.css?20141027050130" />
+<title>Financial Ask - Adviser</title>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700,800' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:300,200,100' rel='stylesheet' type='text/css'> 
-
+<style type="text/css">
+.feed-nav-icon {
+    background-image: url("/img/sprite-sa313b29d78.png") !important;
+}
+</style>
 </head>
 <body class="animated sb-collapsed" ng-controller="MainController" ng-class="{'sb-collapsed': collapsed}" resize>
 
@@ -32,7 +36,7 @@
                 <div class="text">You</div>
             </a>
             <a class="icon-box home-box" href="/activity">
-                <div class="feed-nav-icon"></div>
+                <div class="feed-nav-icon">1</div>
                 <div class="text">Home</div>
             </a>
             <a class="icon-box search-box" href="/search">
@@ -87,87 +91,156 @@
 
 
     <div class="container-fluid" id="pcont">
-<!-- Modal -->
-<div class="modal fade" id="yw0" tabindex="-1" role="dialog" aria-labelledby="Incoming call" aria-hidden="true">
-    <div class="modal-dialog" style="width: 250px">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title" id="myModalLabel">Incoming call</h4>
-            </div>
-            <div class="modal-body">
-                <div class="caller" style="margin-left: 60px;">
-                    <img alt="Gravatar image" title="Gravatar image" src="http://www.gravatar.com/avatar/5a7ea0c602163602250f97ed0de4e698?d=http%3A%2F%2Fdev.financialask.com.au%2Fimg%2Fdefault-avatar.png&amp;r=r&amp;s=80" />                    <div class="name">[Person]</div>
+
+        <div class="cl-mcont">
+
+            <section id="content">
+            <link rel="stylesheet" type="text/css" href="/style/css/default/sprites.css">
+<!--<div class="row">
+    <div class="search-control col-md-8 col-md-offset-2">
+        <input class="search-control form-control" placeholder="Search name, specialty, or topic">
+        <span class="glyphicon glyphicon-search"></span>
+    </div>
+</div>-->
+
+<div class="advisers-wrapper">
+    <div class="sub-header">
+        <div class="search-nav top-doctor-search">
+            <div class="search-inner">
+                <div class="input-wrap">
+                    <input class="search-input" placeholder="Search name, specialty, or topic">
+                    <span class="search-x" style="display: none;"></span>
+                    <div class="open-filter-btn">
+                        <div class="filter-icon"></div>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Decline</button>
-                <button type="button" class="btn btn-primary accept">Accept</button>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="page_wrapper">
+        <div class="span50 right right-panel">
+            <div class="doctor-filter">
+    
+                <!-- START location filter -->
+                <div class="location-filter filter-item clickable-input" data-type="location">
+                    <div class="location-icon filter-el-icon"></div>
+                    <a>
+                        <span class="filter-label" style="display: block;">Location/Suburb</span>
+                        <span class="filter-value"></span>
+                    </a>
+                    <div class="remove-filter-x" style="display: none;"></div>
+                </div>
+                <div class="location-filter-form" data-type="location" style="display: none;">
+                    <div class="filter-input-wrapper location-input">
+                        <input class="filter-input search-input" placeholder="Enter location or suburb">
+                        <div class="filter-x" data-type="location"></div>
+                    </div>
+                    <div class="autocomplete-results">
+                        <div class="location-results"></div>
+                    </div>
+                </div>
+                <!-- END location filter -->
+    
+    
+                <!-- START specialty filter -->
+                <div class="specialty-filter filter-item clickable-select" data-type="specialty">
+                    <div class="specialty-icon filter-el-icon"></div>
+                    <a>
+                        <span class="filter-label" style="display: block;">Specialty</span>
+                        <span class="filter-value"></span>
+                    </a>
+                    <div class="remove-filter-x" style="display: none;"></div>
+                </div>
+                <div class="specialty-filter-form" data-type="specialty" style="display: none;">
+                    <div class="select-results" data-type="specialty">
+                        <div class="select-item" data-value="1">Retirement</div><div class="select-item" data-value="2">Investment</div><div class="select-item" data-value="3">Superannuation</div><div class="select-item" data-value="4">Budgeting</div><div class="select-item" data-value="5">Trusts</div><div class="select-item" data-value="6">Insurance</div><div class="select-item" data-value="7">Wealth Building</div><div class="select-item" data-value="9">Property</div><div class="select-item" data-value="10">SMSF</div><div class="select-item" data-value="11">Tax</div>                    </div>
+                </div>
+                <!-- END specialty filter -->
+    
+                <!-- START years in practice -->
+                <div class="years-filter filter-item clickable-select" data-type="years">
+                    <div class="years-icon filter-el-icon"></div>
+                    <a>
+                        <span class="filter-label">Years in Practice</span>
+                        <span class="filter-value"></span>
+                    </a>
+                    <div class="remove-filter-x" style="display: none"></div>
+                </div>
+                <div class="years-filter-form" data-type="years" style="display: none">
+                    <div class="select-results" data-type="years">
+                        <div class="select-item">5+</div>
+                        <div class="select-item">10+</div>
+                    </div>
+                </div>
+                <!-- END years in practice -->
+    
+    
+                <!-- START gender filter -->
+                <div class="gender-filter filter-item clickable-radio-group" data-type="gender">
+                    <div class="gender-icon"></div>
+                    <input class="fg-radio" id="female-radio" name="gender" type="radio" value="0">
+                    <label class="filter-label" for="female-radio">Female</label>
+                    <input class="fg-radio" id="male-radio" name="gender" type="radio" value="1">
+                    <label class="filter-label" for="male-radio">Male</label>
+                    <div class="filter-x" data-type="gender"></div>
+                </div>
+                <!-- END gender filter -->
+    
+                <!-- START Highest Rated -->
+                <div class="highrated-filter filter-item clickable-checkbox" data-type="highrated">
+                    <div class="docscore-icon"></div>
+                    <input class="fg-checkbox" id="highrated-checkbox" name="highrated" type="checkbox">
+                    <label class="filter-label" for="highrated-checkbox">Highest Rated</label>
+                </div>
+                <!-- END Highest Rated -->
+    
+                <!-- START Most Popular -->
+                <div class="mostpopular-filter filter-item clickable-checkbox" data-type="mostpopular">
+                    <div class="certified-icon"></div>
+                    <input class="fg-checkbox" id="mostpopular-checkbox" name="mostpopular" type="checkbox">
+                    <label class="filter-label" for="mostpopular-checkbox">Most Popular</label>
+                </div>
+                <!-- END Most Popular -->
+    
+                <!-- START CFP Qualification -->
+                <div class="featured-filter filter-item clickable-checkbox" data-type="cfp">
+                    <div class="certified-icon"></div>
+                    <input class="fg-checkbox" id="cfp-checkbox" name="cfp" type="checkbox">
+                    <label class="filter-label" for="cfp-checkbox">CFP Qualified</label>
+                </div>
+                <!-- END Featured -->
+    
+                <!-- START Online -->
+                <div class="featured-filter filter-item clickable-checkbox" data-type="online">
+                    <div class="degrees-icon"></div>
+                    <input class="fg-checkbox" id="online-checkbox" name="online" type="checkbox" >
+                    <label class="filter-label" for="online-checkbox">Online</label>
+                </div>
+                <!-- END Featured -->
+    
+                <!-- START Featured -->
+                <div class="featured-filter filter-item clickable-checkbox" data-type="featured">
+                    <div class="degrees-icon"></div>
+                    <input class="fg-checkbox" id="featured-checkbox" name="featured" type="checkbox">
+                    <label class="filter-label" for="featured-checkbox">Featured</label>
+                </div>
+                <!-- END Featured -->
+    
+                <div class="btn-wrapper">
+                    <div class="filter-btn btn">Filter results</div>
+                </div>
+            </div>
+        </div>
+        <div class="span50 left left-panel default-doc-list">
+            <div class="doctor-results search-results" style="display: none;"></div>
+            <div class="doctor-results suggest-doctors">
+                <div class="result-title">Suggested for you</div>
             </div>
         </div>
     </div>
 </div>
-        <div class="cl-mcont">
-
-            <section id="content">
-            <style>
-    /*.cl-mcont {
-        max-width: 751px;
-    }*/
-    .timeline-spine{
-        margin:0 auto 0 -5px;
-        display:block;
-        height:90%;
-        position:absolute;
-        width: 5px;
-        left: 52.3% !important;
-        top: 10% !important;
-        background: #ddd;
-        z-index:0
-    }
-    .timeline-spine span{
-        width: 20px;
-        height: 20px;
-        display: block;
-        top: 30%;
-        left: -7px;
-        position: absolute;
-        cursor: default;
-        z-index: 10;
-        background: #1bd5b5;
-        border-radius: 50%;
-        border: 4px solid #ddd;
-    }
-    .ts-date{
-        position: absolute;
-        background: #F0F0F0;
-        width: 42px;
-        padding: 5px;
-        color: #1bd5b5;
-        top: 23%;
-        left: -18px;
-        text-align: center;
-        line-height: 16px;
-    }
-</style>
-<!--<div class="timeline-spine">
-    <p class="ts-date">Aug<br>2014</p>
-    <span></span>
-</div>-->
-<div id="feed-tpl">
-        <div ng-controller="ActivitiesController">
-        <div id="container-feed"
-             isotope-container="isotope-container"
-             infinite-scroll="load()"
-             infinite-scroll-container="maincont"
-             infinite-scroll-distance="0"
-             infinite-scroll-disabled="isDisabled()">
-            <div ng-repeat="feed in feeds | orderBy:'id' : true" class="{{feed.type}}-item feed-item" isotope-item="isotope-item" ng-include="tpl(feed.type)">
-            </div>
-        </div>
-        <div class="fg-spinner" id="loading-more" style=" margin: 20px auto;" ng-show="loading"></div>
-    </div>
-</div>      </section>
+      </section>
 
       <div id="notificationBox">
   <div class="new">
@@ -200,5 +273,6 @@
     </div>
 
 </div>
+
 </body>
 </html>
