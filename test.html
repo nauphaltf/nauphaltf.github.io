@@ -1,0 +1,186 @@
+<html lang="en" ng-app="faApp" class="csstransforms csstransforms3d csstransitions ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <link href="/images/icon.png" rel="shortcut icon">
+
+    <link href="stylecss/default/viewQuestion.css" type="text/css" rel="stylesheet">
+<link href="stylecss/default/askQuestion.css" type="text/css" rel="stylesheet">
+<link href="css/questionResponse.css" type="text/css" rel="stylesheet">
+<link href="components/bootstrap/distcss/bootstrap.min.css" type="text/css" rel="stylesheet">
+<link href="components/font-awesomecss/font-awesome.min.css" type="text/css" rel="stylesheet">
+<link href="components/nanoscroller/bincss/nanoscroller.css" type="text/css" rel="stylesheet">
+<link href="stylecss/default/menu.css?20141027042618" type="text/css" rel="stylesheet">
+<link href="stylecss/default/notifications.css?20141027042618" type="text/css" rel="stylesheet">
+<link href="css/main-ng.css?20141027042618" type="text/css" rel="stylesheet">
+<link href="css/financialask-responsive.css?20141027042618" type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="//d2hpw6pw4uian4.cloudfront.net/static/d987357d83281ffa3816c4e04e44dd4eb764858d/client/js/..css/sme-popup.css"></head>
+<body resize="" ng-class="{'sb-collapsed': collapsed}" ng-controller="MainController" class="animated sb-collapsed ng-scope">
+
+<div class="navbar navbar-default navbar-fixed-top" id="head-nav">
+    <div class="container-fluid">
+        <div class="right" id="fa-navbar">
+            <a ng-click="showYou()" class="icon-box you-box">
+                <div class="you-nav-icon"></div>
+                <div class="text">You</div>
+            </a>
+            <a href="/activity" class="icon-box home-box">
+                <div class="feed-nav-icon"></div>
+                <div class="text">Home</div>
+            </a>
+            <a href="/search" class="icon-box search-box">
+                <div class="search-nav-icon"></div>
+                <div class="text">Search</div>
+            </a>
+            <a href="/questions/ask" class="icon-box ask-docs">
+                <div class="talk2docs-nav-icon"></div>
+                <div class="text">Ask</div>
+            </a>
+            <a href="/adviser/index" class="icon-box checklists-box">
+                <div class="checklists-nav-icon">
+                <!--    <div class="red-circle" style="display: none;">
+                        <div class="number"></div>
+                    </div>-->
+                </div>
+                <div class="text">Advisers</div>
+            </a>
+        </div>
+        <a href="" id="navbar-brand-logo" class="navbar-brand"><img src="/img/financialask_logo.png"></a>
+    </div>
+</div>
+
+<div ng-mouseleave="leave()" ng-mouseover="over()" class="cl-sidebar">
+    <div class="cl-navblock">
+        <div class="menu-space">
+            <div class="content">
+                <div class="sidebar-logo">
+                    <div class="logo">
+                    </div>
+                </div>
+                                <ul class="cl-vnavigation">
+                    <li><a href="/questions/unanswered"><i class="fa fa-bullhorn fa-lx"></i><span class="linkTitle">New Questions</span></a></li><li><a href="/adviser/index"><i class="fa fa-list-alt fa-lx"></i><span class="linkTitle">Advisers</span></a></li><li><a href="/questions/answered"><i class="fa fa-check-square-o fa-lx fa-lx"></i><span class="linkTitle">Answers</span></a></li><li><a href="/search"><i class="fa fa-book fa-lx"></i><span class="linkTitle">Learn</span></a></li><li><a href="/questions/myanswers"><i class="fa  fa-check fa-lx"></i><span class="linkTitle">My Answers</span></a></li><li><a href="/profile/update"><i class="fa fa-user fa-lx"></i><span class="linkTitle">My Profile</span></a></li><li><a href="/notification/index"><i class="fa fa-bolt fa-lx"></i><span class="linkTitle">My Notifications</span></a></li><li><a href="/site/settings"><i class="fa fa-gears fa-lx"></i><span class="linkTitle">My Settings</span></a></li><li><a href="/site/logout"><i class="fa fa-sign-out fa-lx"></i><span class="linkTitle">Logout</span></a></li><!--
+                    <li><a href="#"><i class="fa fa-home"></i><span>Test Parent Menu</span></a>
+                        <ul class="sub-menu">
+                            <li class="active"><a href="index.html">Test Sub 1</a></li>
+                            <li><a href="dashboard2.html"><span class="label label-primary pull-right">New</span>Test Sub 2</a></li>
+                        </ul>
+                    </li>
+-->
+                </ul>
+            </div>
+        </div>
+        <div style="padding:7px 9px; display: none;" class="text-right collapse-button">
+            <button style="" class="btn btn-default" id="sidebar-collapse"><i class="fa fa-angle-left" style="color:#fff;"></i></button>
+        </div>
+    </div>
+</div>
+
+<div id="cl-wrapper" style="opacity: 1; margin-left: 0px;">
+
+
+    <div id="pcont" class="container-fluid">
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="Incoming call" role="dialog" tabindex="-1" id="yw0" class="modal fade">
+    <div style="width: 250px" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                <h4 id="myModalLabel" class="modal-title">Incoming call</h4>
+            </div>
+            <div class="modal-body">
+                <div style="margin-left: 60px;" class="caller">
+                    <img src="http://www.gravatar.com/avatar/5a7ea0c602163602250f97ed0de4e698?d=http%3A%2F%2Fdev.financialask.com.au%2Fimg%2Fdefault-avatar.png&amp;r=r&amp;s=80" title="Gravatar image" alt="Gravatar image">                  <div class="name">[Person]</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Decline</button>
+                <button class="btn btn-primary accept" type="button">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="cl-mcont">
+
+            <section id="content">
+            <style>
+    /*.cl-mcont {
+        max-width: 751px;
+    }*/
+    .timeline-spine{
+        margin:0 auto 0 -5px;
+        display:block;
+        height:90%;
+        position:absolute;
+        width: 5px;
+        left: 52.3% !important;
+        top: 10% !important;
+        background: #ddd;
+        z-index:0
+    }
+    .timeline-spine span{
+        width: 20px;
+        height: 20px;
+        display: block;
+        top: 30%;
+        left: -7px;
+        position: absolute;
+        cursor: default;
+        z-index: 10;
+        background: #1bd5b5;
+        border-radius: 50%;
+        border: 4px solid #ddd;
+    }
+    .ts-date{
+        position: absolute;
+        background: #F0F0F0;
+        width: 42px;
+        padding: 5px;
+        color: #1bd5b5;
+        top: 23%;
+        left: -18px;
+        text-align: center;
+        line-height: 16px;
+    }
+</style>
+<!--<div class="timeline-spine">
+    <p class="ts-date">Aug<br>2014</p>
+    <span></span>
+</div>-->
+      </section>
+
+      <div id="notificationBox">
+  <div class="new" style="display: none;">
+    0
+  </div>
+  <div class="eventList">
+      <li class="list"><ul class="last-item">
+    <a href="/notification/index">see all notifications</a>
+</ul>
+</li>
+  </div>  
+</div>
+        </div>
+
+    <div id="footer">
+      <ul class="fa-ul">
+          <li><a href="/site/about">Who we are</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a href="/site/termsConditions">Terms &amp; Conditions</a></li>
+          <!--<li><i class="fa-li fa fa-circle"></i><a>What we make</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Work with us</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Privacy</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Contact</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Topics by Specialty</a></li>
+          <li><i class="fa-li fa fa-circle"></i><a>Answers by Specialty</a></li>-->
+      </ul>
+      <div class="disclaimer">FinancialAsk does not provide financial advice<br>
+        The advisers listed are responsible for any financial product advice provided and the views expressed are not those of FinancialAsk (FA).  Any general advice provided by advisers does not take into account an individual’s objectives, financial situation or needs. Talk to an adviser to discuss the appropriateness of advice for your own personal financial circumstances.
+
+      <!--For these services, please see <a>Additional Information</a>--></div>
+      <div class="copy">&copy; 2014 FinancialAsk</div>
+    </div>
+    </div>
+
+</div>
+
+<iframe style="display: none;"></iframe><a class="back-to-top" href="#"><i class="fa fa-angle-up"></i></a><a style="background-color: rgb(15, 82, 186); position: fixed; display: none; z-index: 2147483647; padding: 0px; background-repeat: no-repeat; background-image: url(&quot;//d2hpw6pw4uian4.cloudfront.net/static/d987357d83281ffa3816c4e04e44dd4eb764858d/client/images/control-apps.png&quot;); width: 44px; height: 40px; text-indent: -10000px;" id="sumotest-badge" title="SumoMe" href="javascript:void(0);"></a></body></html>
