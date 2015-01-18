@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript">
+	$(function() {			
+					//Enable swiping...
+					$("#test").swipe( {
+						//Generic swipe handler for all directions
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+							$('h1').text("You swiped " + direction );	
+						},
+						//Default is 75px, set to 0 for demo so any distance triggers swipe
+					   threshold:0
+					});
+				});
+	
+	</script>
+</head>
+<body>
+<div id="test" style="height: 500px; width: 800px; background: #CDCDCD;">
+<h1></h1>
+<input type="button" value="This is a test button" style="height: 200px; width: 450px;">
+</div>
+</body>
+</html>
